@@ -1,0 +1,39 @@
+﻿@model InventorySystem.Models.Supplier
+
+<h2>Supplier Details</h2>
+
+<div class="card p-3">
+    <dl class="row">
+        <dt class="col-sm-3">Supplier Name</dt>
+        <dd class="col-sm-9">@Model.SupplierName</dd>
+
+        <dt class="col-sm-3">Contact Name</dt>
+        <dd class="col-sm-9">@Model.ContactName</dd>
+
+        <dt class="col-sm-3">Contact Email</dt>
+        <dd class="col-sm-9">@Model.ContactEmail</dd>
+
+        <dt class="col-sm-3">Phone Number</dt>
+        <dd class="col-sm-9">@Model.ContactNumber</dd>
+
+        <dt class="col-sm-3">Address</dt>
+        <dd class="col-sm-9">@Model.Address</dd>
+
+        <dt class="col-sm-3">City</dt>
+        <dd class="col-sm-9">@Model.City</dd>
+
+        <dt class="col-sm-3">Country</dt>
+        <dd class="col-sm-9">@Model.Country</dd>
+
+        <dt class="col-sm-3">Postal Code</dt>
+        <dd class="col-sm-9">@Model.PostalCode</dd>
+
+        <dt class="col-sm-3">Created Date</dt>
+        <dd class="col-sm-9">@Model.CreatedDate.ToString("yyyy-MM-dd")</dd>
+    </dl>
+</div>
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.SupplierID" class="btn btn-warning">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Back to List</a>
+</p>

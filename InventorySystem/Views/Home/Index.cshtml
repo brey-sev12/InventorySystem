@@ -1,8 +1,45 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model InventorySystem.Models.DashboardViewModel
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container my-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold text-primary">Inventory Dashboard</h1>
+        <p class="lead text-muted">Monitor your inventory and supplier data at a glance.</p>
+    </div>
+
+    <div class="row g-4 mb-5 justify-content-center">
+        <!-- Product Count Card -->
+        <div class="col-md-4">
+            <div class="card text-white bg-info shadow h-100">
+                <div class="card-body text-center">
+                    <i class="bi bi-box-seam display-4 mb-3"></i>
+                    <h5 class="card-title">Total Products</h5>
+                    <h2 class="fw-bold">@Model.ProductCount</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Supplier Count Card -->
+        <div class="col-md-4">
+            <div class="card text-white bg-success shadow h-100">
+                <div class="card-body text-center">
+                    <i class="bi bi-truck display-4 mb-3"></i>
+                    <h5 class="card-title">Total Suppliers</h5>
+                    <h2 class="fw-bold">@Model.SupplierCount</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+            <a asp-controller="Product" asp-action="Index" class="btn btn-outline-primary btn-lg w-100 shadow-sm">
+                <i class="bi bi-box"></i> View Products
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a asp-controller="Product" asp-action="Create" class="btn btn-outline-success btn-lg w-100 shadow-sm">
+                <i class="bi bi-plus-circle"></i> Add New Product
+            </a>
+        </div>
+    </div>
 </div>

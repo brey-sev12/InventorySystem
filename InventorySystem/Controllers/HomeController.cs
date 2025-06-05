@@ -1,21 +1,29 @@
 using System.Diagnostics;
 using InventorySystem.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;  // For async DB calls
 
 namespace InventorySystem.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ISDBContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ISDBContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var model = new DashboardViewModel
+            {
+                ProductCount = await _context.Products.CountAsync(),
+                SupplierCount = await _context.Suppliers.CountAsync()
+            };
+            return View(model);
         }
 
         public IActionResult Privacy()

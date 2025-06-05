@@ -1,0 +1,28 @@
+﻿@model InventorySystem.Models.Product
+
+<h2>Delete Product</h2>
+
+<div class="card p-3">
+    <dl class="row">
+        <dt class="col-sm-3">Product Code</dt>
+        <dd class="col-sm-9">@Model.ProductCode</dd>
+
+        <dt class="col-sm-3">Product Name</dt>
+        <dd class="col-sm-9">@Model.ProductName</dd>
+
+        <dt class="col-sm-3">Quantity</dt>
+        <dd class="col-sm-9">@Model.Quantity</dd>
+
+        <dt class="col-sm-3">Price</dt>
+        <dd class="col-sm-9">@Model.Price.ToString("C")</dd>
+
+        <dt class="col-sm-3">Supplier</dt>
+        <dd class="col-sm-9">@Model.Supplier?.SupplierName</dd>
+    </dl>
+</div>
+
+<form asp-action="Delete" method="post" class="mt-3">
+    <input type="hidden" asp-for="ProductID" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Cancel</a>
+</form>

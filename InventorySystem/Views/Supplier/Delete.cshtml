@@ -1,0 +1,25 @@
+﻿@model InventorySystem.Models.Supplier
+
+<h2>Delete Supplier</h2>
+
+<div class="card p-3">
+    <dl class="row">
+        <dt class="col-sm-3">Supplier Name</dt>
+        <dd class="col-sm-9">@Model.SupplierName</dd>
+
+        <dt class="col-sm-3">Contact Name</dt>
+        <dd class="col-sm-9">@Model.ContactName</dd>
+
+        <dt class="col-sm-3">Contact Email</dt>
+        <dd class="col-sm-9">@Model.ContactEmail</dd>
+
+        <dt class="col-sm-3">Phone Number</dt>
+        <dd class="col-sm-9">@Model.ContactNumber</dd>
+    </dl>
+</div>
+
+<form asp-action="Delete" method="post" class="mt-3">
+    <input type="hidden" asp-for="SupplierID" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Cancel</a>
+</form>
